@@ -396,43 +396,48 @@
       font-weight: 600; flex-shrink: 0;
     }
 
-    /* ── PRIVACY ─────────────────────────────────────────── */
+    /* ── PRIVACY CARD ────────────────────────────────────── */
     #privacy { background: var(--bg-raised); }
-    .privacy-doc {
-      max-width: 740px;
+    .privacy-card {
+      max-width: 680px;
       background: var(--ink-150);
       border: 1px solid var(--border);
       border-radius: var(--r-lg);
-      padding: 2.5rem 3rem;
+      padding: 2rem 2.4rem;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
     }
-    .privacy-doc h3 {
-      font-size: 13px; font-weight: 600;
-      color: var(--fg); margin: 1.8rem 0 0.5rem;
-    }
-    .privacy-doc h3:first-of-type { margin-top: 0; }
-    .privacy-doc p {
+    .privacy-card-body { flex: 1; min-width: 240px; }
+    .privacy-card-body p {
       font-size: 13px; color: var(--ink-700);
-      line-height: 1.75; margin-bottom: 0.4rem;
+      line-height: 1.7; margin-top: 0.5rem;
     }
-    .privacy-doc ul {
-      padding-left: 1.2rem; margin-bottom: 0.4rem;
+    .privacy-card-bullets {
+      margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;
     }
-    .privacy-doc ul li {
-      font-size: 13px; color: var(--ink-700);
-      line-height: 1.75; margin-bottom: 0.2rem;
+    .privacy-card-bullets span {
+      display: flex; align-items: baseline; gap: 8px;
+      font-size: 12px; color: var(--ink-700);
     }
-    .privacy-doc a { color: var(--crimson-bright); }
-    .privacy-updated {
-      font-family: var(--mono); font-size: 10px;
-      color: var(--ink-600); letter-spacing: 0.04em;
-      margin-bottom: 1.8rem;
+    .privacy-card-bullets span::before {
+      content: "—"; font-family: var(--mono);
+      color: var(--crimson-ui); font-weight: 600; flex-shrink: 0;
     }
-    .privacy-left-rule {
-      margin-top: 1.6rem; padding: 10px 14px;
-      border-left: 2px solid var(--crimson-ui);
-      font-family: var(--mono); font-size: 11px;
-      color: var(--ink-600); line-height: 1.55;
+    .privacy-card-cta { flex-shrink: 0; display: flex; align-items: center; }
+    .btn-privacy {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 11px 18px;
+      border: 1px solid var(--crimson-ui);
+      border-radius: var(--r-pill);
+      background: var(--crimson-wash);
+      color: var(--crimson-bright);
+      text-decoration: none;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      transition: background .2s, color .2s;
+      white-space: nowrap;
     }
+    .btn-privacy:hover { background: var(--crimson-ui); color: var(--bone-50); }
 
     /* ── FOOTER ──────────────────────────────────────────── */
     footer {
@@ -471,7 +476,8 @@
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
       .section-inner { padding: 4rem 1.5rem; }
-      .privacy-doc { padding: 1.5rem; }
+      .privacy-card { flex-direction: column; }
+    .privacy-card-cta { width: 100%; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
       h1 { font-size: 2.4rem; }
     }
@@ -694,83 +700,26 @@
   </div>
 </section>
 
-<!-- PRIVACY POLICY -->
+<!-- PRIVACY -->
 <section id="privacy">
   <div class="section-inner">
-    <div class="section-eyebrow">Privacy Policy</div>
+    <div class="section-eyebrow">Privacy</div>
     <h2>Footage stays on your device.</h2>
-    <p class="section-sub">vidnessCam is fully offline. No accounts, no cloud, no analytics.</p>
+    <p class="section-sub">No accounts, no cloud, no analytics — offline by design.</p>
 
-    <div class="privacy-doc">
-      <div class="privacy-updated">LAST UPDATED · 28 APR 2026</div>
-
-      <h3>Overview</h3>
-      <p>
-        vidnessCam ("the App") is developed by Mehmet Eren Ayas. This Privacy Policy explains how the App handles your information.
-        The App is designed to operate entirely on-device — your video recordings are stored locally on your iPhone
-        and are never uploaded to any server by the App.
-      </p>
-
-      <h3>Information We Do Not Collect</h3>
-      <p>The App does not collect, store, or transmit:</p>
-      <ul>
-        <li>Video or audio recordings — all clips are saved locally to your device only</li>
-        <li>Your name, email address, or any account information</li>
-        <li>Device identifiers (beyond what third-party SDKs may collect — see below)</li>
-        <li>Crash logs or analytics from our own servers</li>
-      </ul>
-
-      <h3>Camera & Microphone Access</h3>
-      <p>
-        The App requires camera access to record video. Microphone access is requested to include audio in recordings.
-        All recordings are saved exclusively to your device's local storage and are never transmitted externally by the App.
-      </p>
-
-      <h3>Location (GPS) Access</h3>
-      <p>
-        If you enable the GPS overlay feature (Pro tier), the App requests "When In Use" location access to display
-        your current speed and coordinates on the video frame. Location data is embedded in clips stored locally
-        on your device and is not sent to any server.
-      </p>
-
-      <h3>Advertising (Free Tier)</h3>
-      <p>
-        The free version displays advertisements served by Google AdMob. AdMob may collect certain
-        device identifiers and usage data to serve relevant ads, governed by
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.
-        Upgrading to Pro removes all ads.
-      </p>
-
-      <h3>In-App Purchases</h3>
-      <p>
-        Purchases are processed entirely through Apple's App Store and StoreKit. We do not receive or store
-        your payment information.
-      </p>
-
-      <h3>Data Retention & Deletion</h3>
-      <p>
-        Since all data is stored locally, you can delete recordings at any time through the App's gallery
-        or by uninstalling the App. Uninstalling removes all associated local data.
-      </p>
-
-      <h3>Children's Privacy</h3>
-      <p>
-        The App is not directed at children under 13. We do not knowingly collect personal information from children under 13.
-      </p>
-
-      <h3>Changes to This Policy</h3>
-      <p>
-        We may update this Privacy Policy from time to time. Updates will be reflected on this page with a revised date.
-      </p>
-
-      <h3>Contact</h3>
-      <p>
-        Questions about this Privacy Policy:<br/>
-        <a href="mailto:vidnessCam@sortiepreneur.com">vidnessCam@sortiepreneur.com</a>
-      </p>
-
-      <div class="privacy-left-rule">
-        Arabic mirrors RTL. Numerals and timestamps stay ISO for universal readability. — vidnessCam supports EN · TR · AR · RU · AZ
+    <div class="privacy-card">
+      <div class="privacy-card-body">
+        <p>vidnessCam is fully offline. Nothing you record is ever transmitted to any server.</p>
+        <div class="privacy-card-bullets">
+          <span>No accounts or sign-in required</span>
+          <span>No cloud storage or upload of any kind</span>
+          <span>No analytics or crash reporting</span>
+          <span>GPS data (Pro) embedded in clips on-device only</span>
+          <span>Purchases handled entirely by Apple StoreKit</span>
+        </div>
+      </div>
+      <div class="privacy-card-cta">
+        <a class="btn-privacy" href="privacy.html">Read full policy →</a>
       </div>
     </div>
   </div>
@@ -797,7 +746,7 @@
     </a>
 
     <ul class="footer-links">
-      <li><a href="#privacy">Privacy Policy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
       <li><a href="mailto:vidnessCam@sortiepreneur.com">Support</a></li>
       <li><a href="mailto:vidnessCam@sortiepreneur.com">Press</a></li>
     </ul>
